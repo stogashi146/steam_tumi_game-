@@ -12,6 +12,8 @@ import {
   Text
 } from "@chakra-ui/react";
 
+import { UserCard } from "../organisms/user/UserCard";
+
 export const GameList: FC = memo(() => {
   return (
     <>
@@ -23,23 +25,7 @@ export const GameList: FC = memo(() => {
           検索
         </Button>
       </FormControl>
-      <Box w="260px" h="260px" bg="white" borderRadius="10px" shadow="md" p={4}>
-        <Stack textAlign="center">
-          <Image
-            borderRadius="full"
-            boxSize="160px"
-            src="https://source.unsplash.com/random"
-            alt="プロフィール画像"
-            m="auto"
-          />
-          <Text fontSize="lg" fontWeight="bold">
-            ユーザーネーム（表示名）
-          </Text>
-          <Text fontSize="sm" color="gray">
-            Games
-          </Text>
-        </Stack>
-      </Box>
+      <UserCard />
     </>
   );
 });
