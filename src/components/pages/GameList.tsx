@@ -13,6 +13,7 @@ import {
 } from "@chakra-ui/react";
 
 import { UserCard } from "../organisms/user/UserCard";
+import { GameTable } from "../organisms/game/GameTable";
 
 export const GameList: FC = memo(() => {
   return (
@@ -26,6 +27,7 @@ export const GameList: FC = memo(() => {
         </Button>
       </FormControl>
       <UserCard />
+      <GameTable />
     </>
   );
 });
