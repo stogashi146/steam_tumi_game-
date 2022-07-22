@@ -10,7 +10,15 @@ import {
 } from "@chakra-ui/react";
 import { memo, FC } from "react";
 
-export const GameTable: FC = memo(() => {
+type Props = {
+  isSearch: boolean;
+};
+
+export const GameTable: FC<Props> = memo((props) => {
+  // TODO グローバルState
+  const { isSearch } = props;
+  if (!isSearch) return null;
+
   return (
     <TableContainer>
       <Table variant="simple" colorScheme="blackAlpha" backgroundColor="white">

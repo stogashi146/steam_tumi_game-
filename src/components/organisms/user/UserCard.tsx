@@ -13,7 +13,15 @@ import {
   Text
 } from "@chakra-ui/react";
 
-export const UserCard: FC = memo(() => {
+type Props = {
+  isSearch: boolean;
+};
+
+export const UserCard: FC<Props> = memo((props) => {
+  // TODO グローバルState
+  const { isSearch } = props;
+  if (!isSearch) return null;
+
   return (
     <Box w="460px" h="100%" bg="white" borderRadius="10px" shadow="md" p={5}>
       <Stack textAlign="center">
