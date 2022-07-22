@@ -4,17 +4,22 @@ import { UserId } from "../types/api/userId";
 
 export const useGetUserId = () => {
   const [loading, setLoading] = useState(false);
-  const [userId, setuserId] = useState();
+  const [customeId, setCustomId] = useState("");
 
-  const getUserId = useCallback(() => {
-    axios
-      .get<UserId>(
-        "https://api.steampowered.com/ISteamUser/ResolveVanityURL/v0001/?key=BA4AB9079710241FA1EB1D631E767A87&vanityurl=aian5"
-      )
+  const getUserId = useCallback((name: string) => {
+    const url = `https://api.steampowered.com/ISteamUser/ResolveVanityURL/v0001/?key=XXX&vanityurl=${name}`;
+    console.log(url);
+    fetch(url, {
+      mode: "cors"
+    })
       .then((res) => {
-        res.data;
+        console.log(res);
+        // setCustomId(res);
+        console.log(customeId);
       })
-      .catch(() => {});
+      .catch(() => {
+        console.log("エラー");
+      });
   }, []);
-  return { getUserId, userId, loading };
+  return { getUserId, customeId, loading };
 };
